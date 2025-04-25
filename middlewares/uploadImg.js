@@ -1,4 +1,3 @@
-const { Error } = require("mongoose");
 const multer = require("multer");
 const CONSTANTS = require("../constants");
 
