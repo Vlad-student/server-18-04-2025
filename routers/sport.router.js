@@ -21,13 +21,13 @@ const sportRouter = express.Router();
 
 sportRouter.post(
   "/",
-  validateSportBody(sportShemaCreate),
   upload.single("image"),
+  validateSportBody(sportShemaCreate),
   createSport
 );
 sportRouter.get("/", paginate, buildSportFilter, findAllSports);
 sportRouter.get("/:idSport", findSportById);
-sportRouter.patch( "/:idSport", validateSportBody(sportShemaUpdate), upload.single("image"), updateSportById);
+sportRouter.patch( "/:idSport",upload.single("image"), validateSportBody(sportShemaUpdate),  updateSportById);
 sportRouter.delete("/:idSport", deleteSportById);
 
 module.exports = sportRouter;
