@@ -25,3 +25,30 @@ module.exports.createAthlete = async (req, res, next) => {
     next(createError(400, error.message));
   }
 };
+
+module.exports.getAllAthletes = async (req, res, next) => {
+  try {
+    const athletes = await Athlete.find().populate({
+      path: "sportId",
+      select: "name isOlimpic",
+    });
+    res.status(200).send({ data: athletes });
+  } catch (error) {
+    next(createError(400, error.message));
+  }
+};
+
+module.exports.getAthleteById = async (req, res, next) => {
+  try {
+    const athlete = await Athlete.findById(req.params.idAthlete).populate({
+      path: "sportId",
+      select: "name",
+    });
+    if (!athlete) {
+      return res.status(400).send("athlete not found");
+    }
+    res.status(200).send({ data: athlete });
+  } catch (error) {
+    next(createError(400, error.message));
+  }
+};
