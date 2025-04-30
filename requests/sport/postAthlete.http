@@ -1,8 +1,0 @@
-POST http://localhost:3000/sports/6808f501cd720dd476f1951e/athletes HTTP/1.1
-Content-Type: application/json
-
-{
-"name":"Novak Bober",
-"country": "USA",
-"birthYear" : 1987
-}

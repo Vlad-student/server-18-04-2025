@@ -5,7 +5,7 @@ const CONSTANTS = {
   UPLOAD_FOLDER: "uploads/",
   MAX_UPLOAD_SIZE: 5 * 1024 * 1024,
   AMOUNT: 300,
-  COUNTRIES: ["Germany", "Argentina", "Polish", "Ukraine", "USA", 'Spanish'],
+  COUNTRIES: ["Germany", "Argentina", "Polish", "Ukraine", "USA", 'Spain'],
 };
 
 module.exports = CONSTANTS;

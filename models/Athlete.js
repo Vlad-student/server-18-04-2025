@@ -35,6 +35,8 @@ const athleteSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+athleteSchema.index({ name: 1, country: 1, birthYear: 1 }, { unique: true });
+
 const Athlete = mongoose.model("Athlete", athleteSchema);
 
 module.exports = Athlete;
