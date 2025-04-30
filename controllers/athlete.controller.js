@@ -28,10 +28,11 @@ module.exports.createAthlete = async (req, res, next) => {
 
 module.exports.getAllAthletes = async (req, res, next) => {
   try {
-    const athletes = await Athlete.find().populate({
+    const {limit, skip} = req.pagination;
+    const athletes = await Athlete.find(req.filter).populate({
       path: "sportId",
       select: "name isOlimpic",
-    });
+    }).skip(skip).limit(limit);
     res.status(200).send({ data: athletes });
   } catch (error) {
     next(createError(400, error.message));
@@ -52,3 +53,4 @@ module.exports.getAthleteById = async (req, res, next) => {
     next(createError(400, error.message));
   }
 };
+

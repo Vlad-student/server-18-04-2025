@@ -1,1 +1,1 @@
-GET http://localhost:3000/athletes/ HTTP/1.1
+GET http://localhost:3000/athletes?name=f&country=u&minYear=1978&maxYear=1988 HTTP/1.1
