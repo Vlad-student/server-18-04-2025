@@ -31,7 +31,7 @@ module.exports.findAllSports = async (req, res, next) => {
 
 module.exports.findSportById = async (req, res, next) => {
   try {
-    const sport = await Sport.findById(req.params.idSport);
+    const sport = await Sport.findById(req.params.idSport).populate({path: 'athletes'});
     if (!sport) {
       return res.status(400).send("sport not found");
     }
